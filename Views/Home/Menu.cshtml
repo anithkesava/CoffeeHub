@@ -1,0 +1,17 @@
+﻿@{
+	ViewData["Title"] = "Menu";
+}
+
+@{
+	var currentUser = Context.Session.GetString("CurrentUser");
+}
+
+<h1>Menu Page</h1>
+<h4>Hi @currentUser, Welcome Please check out the Menu</h4>
+
+<a href="~/Home/Order">
+	Order
+	</a>
+<a href="~/Home/Logout">
+	Logout
+	</a>
