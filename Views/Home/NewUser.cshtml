@@ -22,18 +22,50 @@
 				@if (HelperClass.IsRequiredFieldEmpty)
 				{
 					<div class="missingFieldsEmpty">
-						<form method="post" asp-controller="Home" asp-action="CloseRequiredFieldPopup">
+						<form class="makethetextandbtncenter" method="post" asp-controller="Home" asp-action="CloseRequiredFieldPopup">
 							<span class="requiredfields"><span class="asterisk">*</span> Required Fields Cannot be Blank</span><br />
-							<button style="margin-top:20px;margin-left:120px;" class="okay-btn" type="submit">OK</button>
+							<button style="margin-top:20px;" class="okay-btn" type="submit">OK</button>
 						</form>
 					</div>
 				}
 				@if (@HelperClass.IsAccountCreated)
 				{
 					<div class="missingFieldsEmpty">
-						<form method="post" asp-controller="Home" asp-action="CloseAccountCreatedPopup">
+						<form class="makethetextandbtncenter" method="post" asp-controller="Home" asp-action="CloseAccountCreatedPopup">
 							<span class="requiredfields"><span class="asterisk">*</span> Account Created Successfully</span><br />
-							<button style="margin-top:20px;margin-left:120px;" class="okay-btn" type="submit">OK</button>
+							<button style="margin-top:20px;" class="okay-btn" type="submit">OK</button>
+						</form>
+					</div>
+				}
+				@*new pop-ups *@
+				@if (HelperClass.IsPasswordMismatched)
+				{
+					<div class="missingFieldsEmpty">
+						<form method="post" asp-controller="Home" asp-action="ClosePasswordMismatchedPopup">
+							<div class="makethetextandbtncenter">
+								<span class="requiredfields"><span class="asterisk">*</span> Password Mismatched. Please enter Same Password</span>
+								<button style="margin-top:20px;" class="okay-btn" type="submit">OK</button>
+							</div>
+						</form>
+					</div>
+				}
+				@if (HelperClass.IsPinInvalid)
+				{
+					<div class="missingFieldsEmpty">
+						<form class="makethetextandbtncenter" method="post" asp-controller="Home" asp-action="CloseInvalidPinPopUp">
+							<span class="requiredfields"><span class="asterisk">*</span> Pincode is Invalid</span><br />
+							<button style="margin-top:20px;" class="okay-btn" type="submit">OK</button>
+						</form>
+					</div>
+				}
+				@if (HelperClass.IsPhoneNumberInvalid)
+				{
+					<div class="missingFieldsEmpty">
+						<form method="post" asp-controller="Home" asp-action="CloseInvalidPhonenumberPopup">
+							<div class="makethetextandbtncenter">
+								<span class="requiredfields"><span class="asterisk">*</span> Phone Number is Invalid</span>
+								<button style="margin-top:20px;" class="okay-btn" type="submit">OK</button>
+							</div>
 						</form>
 					</div>
 				}
@@ -118,6 +150,7 @@
 				</div>
 				<div class="btn-center">
 					<button class="createAccount-btn" type="submit">Create</button>
+					<a class="behaveslikebtn" href="~/Home/Login">Go to Login</a>
 				</div>
 			</form>
 		</div>

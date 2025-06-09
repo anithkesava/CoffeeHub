@@ -101,7 +101,25 @@
     .createAccount-btn:hover {
         box-shadow: 2px 3px 2px rgb(128, 128, 128);
     }
-
+.behaveslikebtn {
+    height: 50px;
+    width: 200px;
+    background-color: chocolate;
+    border: none;
+    color: white;
+    border-radius: 12px;
+    font-size: 20px;
+    font-weight: bold;
+    font-family: sans-serif;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+}
+    .behaveslikebtn:hover {
+        box-shadow: 2px 3px 2px rgb(128, 128, 128);
+    }
 .btn-center {
     margin-top: 20px;
     display: flex;
@@ -127,7 +145,6 @@
         transform: scale(1);
     }
 }
-
 .missingFieldsEmpty {
     margin-top: 450px;
     display: flex;
@@ -142,7 +159,14 @@
     border: 2px solid red;
     border-radius: 18px;
 }
-
+.makethetextandbtncenter{
+    display:flex;
+    flex-direction: column;
+    gap:20px;
+    justify-content:center;
+    align-items: center;
+    
+}
 .requiredfields {
     font-size: 20px;
     font-family: sans-serif;
