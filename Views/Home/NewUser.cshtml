@@ -1,0 +1,128 @@
+﻿@using CoffeHub.Helper;
+@model CoffeHub.Models.UserDetails;
+@{
+	ViewData["Title"] = "New User";
+}
+<head>
+	<title>@ViewData["Title"] - CoffeHub</title>
+	<link rel="stylesheet" href="~/css/newuserstyle.css" />
+	<link rel="stylesheet" href="~/css/loginpagestyle.css" />
+</head>
+<body class="newuserpageBG">
+	<div class="newuserpageLayer">
+		<!--Layer 1 -->
+		<div class="topimage">
+			<img src="~/images/coffeehubmiddle.jpg" />
+		</div>
+		<!--Layer 2 -->
+
+
+		<div class="userdetailsbox">
+			<div class="makethepop-upcenter">
+				@if (HelperClass.IsRequiredFieldEmpty)
+				{
+					<div class="missingFieldsEmpty">
+						<form method="post" asp-controller="Home" asp-action="CloseRequiredFieldPopup">
+							<span class="requiredfields"><span class="asterisk">*</span> Required Fields Cannot be Blank</span><br />
+							<button style="margin-top:20px;margin-left:120px;" class="okay-btn" type="submit">OK</button>
+						</form>
+					</div>
+				}
+				@if (@HelperClass.IsAccountCreated)
+				{
+					<div class="missingFieldsEmpty">
+						<form method="post" asp-controller="Home" asp-action="CloseAccountCreatedPopup">
+							<span class="requiredfields"><span class="asterisk">*</span> Account Created Successfully</span><br />
+							<button style="margin-top:20px;margin-left:120px;" class="okay-btn" type="submit">OK</button>
+						</form>
+					</div>
+				}
+			</div>
+			<form method="post" asp-controller="Home" asp-action="CreateAccount">
+				<span class="accountCreate">Create Account</span>
+				<div class="rowlayer">
+					<div class="labelpart">
+						<div class="userparts1">
+							<label class="labeltext">Enter Username<span class="asterisk"> *</span></label>
+						</div>
+						<div class="userparts1">
+							<label class="labeltext">Enter Password<span class="asterisk"> *</span></label>
+						</div>
+						<div class="userparts1">
+							<label class="labeltext">Enter Password again<span class="asterisk"> *</span></label>
+						</div>
+						<div class="userparts1">
+							<label class="labeltext">Enter email<span class="asterisk"> *</span></label>
+						</div>
+						<div class="userparts1">
+							<label class="labeltext">Enter Phone number<span class="asterisk"> *</span></label>
+						</div>
+					</div>
+					<div class="textboxPart">
+						<div class="userparts1">
+							<input type="text" class="custom-formcontrol" placeholder="Enter Username" asp-for="Username" />
+						</div>
+						<div class="userparts1">
+							<input type="password" class="custom-formcontrol" asp-for="Password" />
+						</div>
+						<div class="userparts1">
+							<input type="password" class="custom-formcontrol" asp-for="PasswordAgain" />
+						</div>
+						<div class="userparts1">
+							<input type="email" class="custom-formcontrol" placeholder="Enter Email" asp-for="Email" />
+						</div>
+						<div class="userparts1">
+							<input type="number" class="custom-formcontrol" placeholder="Enter Mobile Number" asp-for="PhoneNumber" />
+						</div>
+					</div>
+					<div class="labelpart">
+						<div class="userparts1">
+							<label class="labeltext">Address Line 1<span class="asterisk"> *</span></label>
+						</div>
+						<div class="userparts1">
+							<label class="labeltext">Address Line 2<span class="asterisk"> *</span></label>
+						</div>
+						<div class="userparts1">
+							<label class="labeltext">City<span class="asterisk"> *</span></label>
+						</div>
+						<div class="userparts1">
+							<label class="labeltext">State<span class="asterisk"> *</span></label>
+						</div>
+						<div class="userparts1">
+							<label class="labeltext">Pincode<span class="asterisk"> *</span></label>
+						</div>
+						<div class="userparts1">
+							<label class="labeltext">Nearby LandMark (optional)</label>
+						</div>
+					</div>
+					<div class="textboxPart">
+						<div class="userparts1">
+							<input type="text" class="custom-formcontrol" placeholder="Enter Address Line 1" asp-for="AddressLine1" />
+						</div>
+						<div class="userparts1">
+							<input type="text" class="custom-formcontrol" placeholder="Enter Address Line 2" asp-for="AddressLine2" />
+						</div>
+						<div class="userparts1">
+							<input type="text" class="custom-formcontrol" placeholder="Enter City" asp-for="City" />
+						</div>
+						<div class="userparts1">
+							<input type="text" class="custom-formcontrol" placeholder="Enter State" asp-for="State" />
+						</div>
+						<div class="userparts1">
+							<input type="number" class="custom-formcontrol" placeholder="Enter Pincode" asp-for="Pincode" />
+						</div>
+						<div class="userparts1">
+							<input type="text" class="custom-formcontrol" placeholder="Enter Landmark" asp-for="NearBy" />
+						</div>
+					</div>
+				</div>
+				<div class="btn-center">
+					<button class="createAccount-btn" type="submit">Create</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</body>
+
+
+@* <button class="createAccount-btn" type="submit">Cancel</button> *@

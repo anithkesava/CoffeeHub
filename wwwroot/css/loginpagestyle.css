@@ -1,1 +1,149 @@
-﻿
+﻿.pageBG {
+    overflow: hidden;
+    background-color: chocolate;
+    margin: 0px;
+    padding: 0px;
+}
+
+.twoLayer {
+    display: flex;
+    flex-direction: row;
+    height: 100vh;
+    width: 100vw;
+}
+
+.coffeeHubimage {
+    text-align: center;
+    height: 100%;
+    width: 50%;
+    border-top-right-radius: 300px;
+    border-bottom-right-radius: 300px;
+}
+
+    .coffeeHubimage img {
+        border-top-right-radius: 300px;
+        border-bottom-right-radius: 300px;
+    }
+
+    .loginbox {
+        position: relative;
+        margin-left: 200px;
+        margin-top: 100px;
+        height: 600px;
+        width: 500px;
+        border-radius: 12px;
+        border: none;
+        background-color: white;
+        box-shadow: 2px 9px 8px rgb(0, 0, 0);
+        animation-name: loginanimation;
+        animation-duration: 0.5s;
+        animation-fill-mode: forwards;
+        animation-timing-function: ease-in-out;
+    }
+
+@keyframes loginanimation {
+    0% {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.loginboxcenter {
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+}
+
+.singleLine {
+    margin-top: 10px;
+    margin-bottom: 40px;
+    display: flex;
+    flex-direction: row;
+    gap: 50px;
+}
+
+.labeltext {
+    height: 35px;
+    font-size: 20px;
+    font-weight: bold;
+    font-family: 'Sans Serif Collection';
+}
+
+.custom-formcontrol {
+    padding-inline: 10px;
+    margin-top: 10px;
+    height: 35px;
+    width: 280px;
+    font-size: 18px;
+    font-family: sans-serif;
+    font-weight: normal;
+}
+
+.loginbutton {
+    color: white;
+    border: none;
+    font-family: sans-serif;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 10px;
+    cursor: pointer;
+    height: 40px;
+    width: 140px;
+    background-color: chocolate;
+    border-radius: 12px;
+    transition: all 0.2s;
+}
+
+    .loginbutton:hover {
+        transform: scale(1.04);
+        box-shadow: 4px 5px 1px rgb(128 128 128);
+    }
+
+
+.button-center {
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hrLine {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.horizontal-line {
+    margin-top: 10px;
+    height: 4px;
+    width: 200px;
+    background-color: chocolate;
+}
+
+.link {
+    transition: all 0.3s;
+}
+
+    .link:hover {
+        transform: scale(1.04);
+    }
+
+.imageSize {
+    object-fit: cover;
+    height: 100px;
+    width: 500px;
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 15px;
+}
+
+loginBottomImage {
+    margin-top: auto;
+}

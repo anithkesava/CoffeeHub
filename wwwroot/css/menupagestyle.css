@@ -1,0 +1,65 @@
+﻿.topimage {
+    margin: 0px;
+    padding: 0px;
+    background-color:wheat;
+    overflow-x:hidden;
+}
+.menuPageLayer1 {
+    margin-top:20px;
+    display:flex;
+    flex-direction:column;   
+}
+.menuPageLayer1 img{
+    height:300px;
+    object-fit:cover;
+}
+
+.menuboxalign{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+.menuLayout {
+    margin: 0px;
+    padding: 30px;
+    height: 100vh;
+    width: 1800px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap:50px;
+    background-color: white;
+    border-radius: 12px;
+}
+.menuItems {   
+    display: flex;
+    flex-direction:row;
+    gap:60px;
+}
+.imgsize {
+    height: 220px;
+    width: 220px;
+    border-radius:50%;
+    object-fit:cover;
+}
+
+
+.imgwithlabel {
+    font-size:28px;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    gap: 30px;
+    cursor: pointer;
+    transition: 0.3s ease-in;
+}
+    .imgwithlabel:hover {
+        transform: scale(1.08);
+    }
+

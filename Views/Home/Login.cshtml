@@ -1,0 +1,48 @@
+﻿@model CoffeHub.DTO.UserDTO
+
+@{
+	ViewData["Title"] = "Login";
+}
+<head>
+	<title>@ViewData["Title"] - CoffeHub</title>
+	<link rel="stylesheet" href="~/css/loginpagestyle.css" />
+</head>
+
+<body class="pageBG">
+	<div class="twoLayer">		
+		<!--Layer 1-->
+		<div class="coffeeHubimage">
+			<img src="~/images/CoffeeHub.jpg"  alt="cofeeHubimg" />
+		</div>
+		<!--Layer 2-->
+		<div class="loginbox">
+			<div class="loginboxcenter">
+				<form method="post" asp-controller="Home" asp-action="Menu" >
+					<div class="singleLine">
+						<label class="labeltext">Username</label>
+						<input class="custom-formcontrol" type="text" placeholder="Enter Username" asp-for="Username"/>
+					</div>
+					<div class="singleLine">
+						<label class="labeltext">Password</label>
+						<input class="custom-formcontrol" type="password" asp-for="Password"/>
+					</div>
+					<div class="button-center">
+						<button class="loginbutton" type="submit">Login</button>
+					</div>
+				</form>
+				<div class="hrLine">
+					<hr class="horizontal-line" />
+					<label style="margin-top:8px;" class="form-text">(OR)</label>
+					<hr class="horizontal-line" />
+				</div>
+				
+				<a class="link" href="~/Home/NewUser">
+					New User? Create Account
+				</a>
+				<div class="loginBottomImage">
+					<img class="imageSize" src="~/images/coffeeandherb.jpg"/>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>

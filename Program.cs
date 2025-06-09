@@ -5,9 +5,7 @@ namespace CoffeHub
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
-
-            builder.Services.AddControllersWithViews();
-            
+            builder.Services.AddControllersWithViews();            
             builder.Services.AddAuthorization();
 
            
@@ -30,7 +28,7 @@ namespace CoffeHub
 
             app.MapControllerRoute(
                 name: "default",
-                pattern: "{controller=Home}/{action=Welcome}/{id?}");
+                pattern: "{controller=Home}/{action=Login}/{id?}");
 
             app.Run();
         }
