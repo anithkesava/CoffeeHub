@@ -1,0 +1,167 @@
+﻿.bestsellerPageBG {
+    background-color: chocolate;
+    margin: 0px;
+    padding: 0px;
+    overflow-x: hidden;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+.bestsellerlogo {
+    object-fit: cover;
+    object-position: center;
+    height: 250px;
+    width: 100vw;
+}
+
+.bestsellerlogo img {
+    width: 100vw;
+    height: 250px;
+    object-fit: cover;
+    object-position: center;
+}
+
+.make-the-screen-center {
+    margin-top: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: auto;
+    width: 100%;
+}
+.view-cart {
+    position: fixed;
+    z-index: 9999;
+    margin-top: 200px;
+    height: 130px;
+    width: 300px;
+    border: 5px solid brown;
+    border-radius: 20px;
+    background-color: sandybrown;  
+    cursor: pointer;
+}
+
+.view-cart-align {
+    display: flex;
+    flex-direction:column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.view-cart-span {
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    justify-content:center;
+    align-items:center;
+    gap:20px;
+    height: 130px;
+    width: 300px;
+    color: black;
+    background-color:sandybrown; 
+    border:none;
+    border-radius:12px;
+    font-size: 30px;
+    font-weight: bold;
+    font-family: 'Cascadia Code';
+    cursor: pointer;
+}
+
+.view-cart-quantity {
+    margin-top: 90px;
+    position: relative;
+    z-index: 1000;
+    display: flex;
+    background-color:sandybrown;
+    justify-content: center;
+    align-items: center;
+    font-size: 22px;
+    font-family: 'Cascadia Code';
+}
+
+
+.bestseller-menuscreen {
+    position: relative;
+    height: 2000px;
+    width: 1600px;
+    background-color: white;
+    border: none;
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 100px;
+}
+
+.img-in-row {
+    display: grid;
+    grid-template-columns: repeat(5,1fr);
+    justify-content: center;
+    align-items: center;
+    gap: 60px;
+}
+
+.img-size {
+    margin-top: 50px;
+    height: 200px;
+    width: 200px;
+    border-radius: 50%;
+}
+
+.make-it-in-same-place {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+}
+
+.menu-font {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.add-to-cart {
+    height: 40px;
+    width: 160px;
+    background-color: sandybrown;
+    font-size: 18px;
+    font-family: 'Microsoft Sans Serif';
+    border: none;
+    transition: 0.3s ease-in-out;
+}
+
+    .add-to-cart:hover {
+        box-shadow: 5px 3px 2px rgb(0, 0, 0);
+        transform: scale3d(1.01);
+    }
+
+.minus-count-plus {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.minus-and-plus-btn {
+    height: 40px;
+    width: 40px;
+    background-color: sandybrown;
+    border-radius: 12px;
+    border: none;
+}
+
+.count-btn {
+    height: 40px;
+    width: 100px;
+    text-align: center;
+    padding: 1px;
+    background-color: sandybrown;
+    border-radius: 12px;
+    font-size: 20px;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

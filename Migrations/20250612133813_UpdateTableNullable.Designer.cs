@@ -3,6 +3,7 @@ using CoffeHub.Repo;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CoffeHub.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250612133813_UpdateTableNullable")]
+    partial class UpdateTableNullable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -102,35 +105,6 @@ namespace CoffeHub.Migrations
                     b.HasKey("UserID");
 
                     b.ToTable("UserDetails");
-                });
-
-            modelBuilder.Entity("CoffeHub.Models.ViewCarts", b =>
-                {
-                    b.Property<int>("ID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"));
-
-                    b.Property<int?>("CartCount")
-                        .HasColumnType("int");
-
-                    b.Property<string>("FoodName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("FoodPrice")
-                        .HasColumnType("int");
-
-                    b.Property<bool?>("IsAddtoCartClicked")
-                        .HasColumnType("bit");
-
-                    b.Property<int?>("Quantity")
-                        .HasColumnType("int");
-
-                    b.HasKey("ID");
-
-                    b.ToTable("ViewCarts");
                 });
 #pragma warning restore 612, 618
         }

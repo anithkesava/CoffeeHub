@@ -1,4 +1,5 @@
-﻿@model CoffeHub.DTO.UserDTO
+﻿@using CoffeHub.Helper;
+@model CoffeHub.DTO.UserDTO
 
 @{
 	ViewData["Title"] = "Login";
@@ -6,25 +7,40 @@
 <head>
 	<title>@ViewData["Title"] - CoffeHub</title>
 	<link rel="stylesheet" href="~/css/loginpagestyle.css" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+
 </head>
 
 <body class="pageBG">
-	<div class="twoLayer">		
+	<div class="twoLayer">
 		<!--Layer 1-->
 		<div class="coffeeHubimage">
-			<img src="~/images/CoffeeHub.jpg"  alt="cofeeHubimg" />
+			<img src="~/images/CoffeeHub.jpg" alt="cofeeHubimg" />
 		</div>
 		<!--Layer 2-->
 		<div class="loginbox">
+			@if (HelperClass.IsUserNotExists)
+			{
+				<div class="popup-at-middle">
+					<div class="invalid-user">
+						<i class="fas fa-warning warning"></i>
+						<span>User Not Found. Please Create an Account</span>
+						<form method="post" asp-controller="Home" asp-action="CloseUserNotExistsPopup">
+							<button class="okay-btn" type="submit">OK</button>
+						</form>
+					</div>
+				</div>
+			}
+
 			<div class="loginboxcenter">
-				<form method="post" asp-controller="Home" asp-action="Menu" >
+				<form method="post" asp-controller="Home" asp-action="Menu">
 					<div class="singleLine">
 						<label class="labeltext">Username</label>
-						<input class="custom-formcontrol" type="text" placeholder="Enter Username" asp-for="Username"/>
+						<input class="custom-formcontrol" type="text" placeholder="Enter Username" asp-for="Username" />
 					</div>
 					<div class="singleLine">
 						<label class="labeltext">Password</label>
-						<input class="custom-formcontrol" type="password" asp-for="Password"/>
+						<input class="custom-formcontrol" type="password" asp-for="Password" />
 					</div>
 					<div class="button-center">
 						<button class="loginbutton" type="submit">Login</button>
@@ -35,12 +51,12 @@
 					<label style="margin-top:8px;" class="form-text">(OR)</label>
 					<hr class="horizontal-line" />
 				</div>
-				
+
 				<a class="link" href="~/Home/NewUser">
 					New User? Create Account
 				</a>
 				<div class="loginBottomImage">
-					<img class="imageSize" src="~/images/coffeeandherb.jpg"/>
+					<img class="imageSize" src="~/images/coffeeandherb.jpg" />
 				</div>
 			</div>
 		</div>

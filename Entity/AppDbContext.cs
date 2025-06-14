@@ -7,6 +7,10 @@ namespace CoffeHub.Repo
     {
         public DbSet<UserDetails> UserDetails { get; set; }
 
+        public DbSet<FoodItems> FoodItems { get; set; }
+
+        public DbSet<ViewCarts> ViewCarts { get; set; }
+
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) { }
     }
 }

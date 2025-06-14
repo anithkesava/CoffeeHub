@@ -7,5 +7,14 @@
         public static bool IsPasswordMismatched { get; set; }
         public static bool IsPhoneNumberInvalid { get; set; }
         public static bool IsPinInvalid { get; set; }
+        public static bool IsUserNotExists { get; set; }
+        public static bool IsUserAlreadyExists { get; set; }
+        public static bool IsAddToCartClicked  { get; set; }
+
+        public static bool CanIShowViewCart { get; set; }
+        public static int?  OverAllQuantity { get; set; }
+        public static int TotalPrice { get; set; }
+
+
     }
 }

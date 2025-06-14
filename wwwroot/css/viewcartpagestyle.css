@@ -1,0 +1,202 @@
+﻿.pageBG {
+    background-color: chocolate;
+    margin: 0px;
+    padding: 0px;
+    overflow-x:hidden;
+}
+.imag-size {
+    position: relative; /* Ensures this acts as the reference for absolute positioning */
+    z-index: 0;
+    height: 200px;
+    width: 100vw;
+    object-fit: cover;
+    object-position: top;
+}
+
+    .imag-size img {
+        position: relative;
+        z-index: 0;
+        height: 200px;
+        width: 100vw;
+        object-fit: cover;
+        object-position: top;
+    }
+
+.overlap-img {
+    position: absolute; /* Moves the cart image over the larger one */
+    top: 30px; /* Adjust to control overlap distance */
+    left: 50%;
+    transform: translateX(-50%); /* Ensures exact centering */
+    z-index: 1; 
+}
+
+    .overlap-img img {
+        height: 150px;
+        width: 400px;
+        object-fit: cover;
+    }
+
+.make-the-box-center {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+}
+
+.custom-cart-box {
+    height: 600px;
+    width: 800px;
+    background-color: white;
+    border: 5px solid brown;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    border-radius: 30px;
+}
+.view-cart-text {
+   
+    font-size: 20px;
+    font-family: 'Sans Serif Collection';
+    font-weight: bold;
+    margin-top: 0px;
+}
+.make-it-scrollable {
+    height:100%;
+    width: 100%;
+    overflow-y: scroll;
+}
+.make-the-innercart-center {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+}
+.inner-cart {
+    height: 120px;
+    width: 700px;
+    border: 4px solid green;
+    background-color: azure;
+    border-radius: 12px;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    gap: 20px;
+}
+
+.food-img-cart {
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    border: none;
+
+}
+
+.make-it-in-a-row {
+    margin: 0px;
+    padding: 4px;
+    display: flex;
+    flex-direction: row;
+    justify-content:  space-between;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    gap: 20px;   
+}
+
+.foodname-text-cart {
+    font-size: 20px;
+    font-weight: bold;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.minus-num-plus-cart {
+    margin-inline-end:20px;    
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 5px;
+    height: 100px;
+}
+
+.quantity-btn {
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+    font-family: 'Sans Serif Collection';
+    font-weight: bold;
+    height: 40px;
+    width: 60px;
+    background-color: forestgreen;
+    border-radius: 16px;
+    border: none;
+}
+
+.plus-minus-btn-cart {
+    font-size:14px;
+    text-align: center;
+    display: flex;
+    align-content:center;
+    cursor: pointer;
+    color: white;
+    border: none;
+    height: 40px;
+    width: 60px;
+    background-color: forestgreen;
+    border-radius: 16px;
+    border: none;
+}
+
+.lookanchor-behavebtn {
+    display: inline-flex;
+    flex-direction: column;
+    color: black;
+    text-decoration: none;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+}
+
+.add-more-item {
+    text-decoration: none;
+    font-size: 20px;
+    font-family: 'Cascadia Code';
+}
+.totalitems-totalprice {
+    display: flex;
+    flex-direction: row;
+    gap: 50px;
+    justify-content: center;
+    align-content: center;
+}
+.chechout-page-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    width: 150px;
+    background-color:forestgreen;
+    color: white;
+    font-size: 26px;
+    font-family: 'Sans Serif Collection';
+    border-radius: 10px;
+    border: none;
+    transition: 0.3s ease-in-out;
+}
+.chechout-page-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 3px 4px 2px rgb(150, 94, 94);
+}

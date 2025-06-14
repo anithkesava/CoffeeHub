@@ -1,0 +1,122 @@
+﻿@model List<CoffeHub.Models.ViewCarts>;
+@using CoffeHub.Helper;
+
+@{
+	ViewData["Title"] = "View Cart";
+}
+
+<title>@ViewData["Title"] - CoffeeHub</title>
+<head>
+	<link rel="stylesheet" href="~/css/viewcartpagestyle.css" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body class="pageBG">
+
+	<div>
+		<div class="imag-size">
+			<img src="~/images/viewCart/CoffeeHubCart.png" alt="viewCart" />
+		</div>
+		<div class="overlap-img">
+			<img src="~/images/viewCart/Cart1.png" alt="cart-image" />
+		</div>
+	</div>
+
+
+
+	<div class="make-the-box-center">
+		<div class="custom-cart-box">
+
+			@*we need to create a view cart inside this area
+
+			create a box, each time for a order inside the view cart box
+			each box consists of 
+								- order image
+								- ordered food
+								- ordered food price
+								- order quantity with - and + symbol
+			*@
+
+			<div class="make-it-scrollable">
+				@for (int i = 0; i < Model.Count; i++)
+				{
+					@if (Model[i].CartCount > 0)
+					{
+						<div class="make-the-innercart-center">
+							<div class="inner-cart">
+								<div class="make-it-in-a-row">
+
+									@* 1 *@
+									<img class="food-img-cart" alt="@Model[i].FoodName" src="@(Url.Content($"~/images/bestseller/{Model[i].FoodName}.png"))" />
+
+									@* 2 *@
+									<div class="foodname-text-cart">
+										<span>@Model[i].FoodName.Replace("_", " ")  </span>
+										<span>Rs. @(@Model[i].FoodPrice * @Model[i].CartCount)</span>
+									</div>
+
+									@* 3 *@
+									<div class="minus-num-plus-cart">
+
+										@*viewcart minus logic*@
+										<a href="~/Home/ViewCart_Minus?foodname=@Model[i].FoodName">
+											<span class="fas fa-minus plus-minus-btn-cart"> </span>
+										</a>
+
+										<span class="quantity-btn"> @Model[i].CartCount</span>
+
+										@*viewcart plus logic*@
+										<a href="~/Home/ViewCart_Plus?foodname=@Model[i].FoodName">
+											<span class="fas fa-plus plus-minus-btn-cart"></span>
+										</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					}
+				}
+			</div>
+			<div class="add-more-item">
+				<a href="~/Home/BestSeller">
+					+ Add more items in the Cart
+				</a>
+			</div>
+			<div class="totalitems-totalprice">
+				@if(HelperClass.OverAllQuantity > 0 && HelperClass.TotalPrice > 0)
+				{
+					<h2>Total Item: @HelperClass.OverAllQuantity</h2>
+					<h2>Total Price: @HelperClass.TotalPrice</h2>
+				}else
+				{
+					<h2>No Items in the Cart</h2>
+				}
+			</div>
+			@*still here*@
+			<div >
+				<form method="post" asp-controller="Home" asp-action="Checkout">
+					<button class="chechout-page-btn" type="submit">
+						Checkout
+					</button>
+				</form>				
+			</div>
+		</div>
+	</div>
+</body>
+
+<script>
+		document.addEventListener("DOMContentLoaded", function () {
+		const forms = document.querySelectorAll("form");
+		forms.forEach(form => {
+			form.addEventListener("submit", function () {
+				// Save scroll position before submitting form
+				sessionStorage.setItem("scrollPosition", window.scrollY);
+			});
+		});
+
+		// Restore scroll position after reload
+		const scrollY = sessionStorage.getItem("scrollPosition");
+		if (scrollY !== null) {
+			window.scrollTo(0, parseInt(scrollY));
+			sessionStorage.removeItem("scrollPosition"); // Clear after restoring
+		}
+	});
+</script>

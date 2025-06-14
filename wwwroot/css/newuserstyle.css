@@ -2,7 +2,6 @@
     margin: 0px;
     padding: 0px;
 }
-
 .newuserpageBG {
     overflow-y: hidden;
     overflow-x: hidden;
@@ -10,7 +9,6 @@
     padding: 0px;
     background-color: chocolate;
 }
-
 .newuserpageLayer {
     display: flex;
     flex-direction: column;
@@ -19,26 +17,22 @@
     width: 100vw;
     gap: 50px;
 }
-
 .topimage {
     height: 200px;
     width: 100%;
     object-fit: cover;
 }
-
     .topimage img {
         height: 200px;
         width: 100%;
         object-fit: cover;
     }
-
 .userdetailsbox {
     height: 600px;
     width: 1600px;
     background-color: white;
     border-radius: 20px;
 }
-
 .accountCreate {
     text-shadow: 1px 2px 2px rgb(0, 0, 0);
     margin-top: 20px;
@@ -49,13 +43,11 @@
     display: flex;
     justify-content: center;
 }
-
 .rowlayer {
     display: flex;
     flex-direction: row;
     gap: 20px;
 }
-
 .labelpart {
     display: flex;
     flex-direction: column;
@@ -64,7 +56,6 @@
     font-size: 50px;
     gap: 30px;
 }
-
 .textboxPart {
     display: flex;
     flex-direction: column;
@@ -73,18 +64,15 @@
     font-size: 50px;
     gap: 20px;
 }
-
 .userparts1 {
     display: flex;
     flex-direction: row;
     gap: 40px;
 }
-
 .asterisk {
     color: red;
     font-size: 16px;
 }
-
 .createAccount-btn {
     height: 50px;
     width: 200px;
@@ -97,7 +85,6 @@
     font-family: sans-serif;
     cursor: pointer;
 }
-
     .createAccount-btn:hover {
         box-shadow: 2px 3px 2px rgb(128, 128, 128);
     }
@@ -127,20 +114,16 @@
     align-items: center;
     gap: 100px;
 }
-
 .makethepop-upcenter {
     display: flex;
     justify-content: center;
     align-items: center;
     animation: popup-animation 0.3s forwards ease-in-out;
-    
 }
-
 @keyframes popup-animation {
     0% {
         transform: scale(0.4);
     }
-
     100% {
         transform: scale(1);
     }
@@ -165,14 +148,12 @@
     gap:20px;
     justify-content:center;
     align-items: center;
-    
 }
 .requiredfields {
     font-size: 20px;
     font-family: sans-serif;
     font-weight: bold;
 }
-
 .okay-btn {
     font-size:20px;
     height: 40px;
@@ -183,3 +164,5 @@
     cursor:pointer;
     border-radius:4px;
 }
+
+

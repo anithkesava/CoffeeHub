@@ -129,6 +129,7 @@
 }
 
 .link {
+    margin-top:30px;
     transition: all 0.3s;
 }
 
@@ -144,6 +145,42 @@
     border-bottom-right-radius: 15px;
 }
 
-loginBottomImage {
+.loginBottomImage {
     margin-top: auto;
 }
+.popup-at-middle {
+    position:absolute;
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    height: 400px;
+    width:500px;
+}
+
+.invalid-user {
+    height: 250px;
+    width: 400px;
+    background-color: white;
+    border: 2px solid;
+    border-radius:16px;
+    display: flex;
+    flex-direction: column;
+    gap:30px;
+    justify-content:center;
+    align-items:center;    
+}
+.warning {
+    font-size: 50px;
+    color: orange;
+}
+
+.okay-btn {
+    height:30px;
+    width: 100px;
+    background-color: green;
+    color:white;
+    border:none;
+    border-radius: 8px;
+
+}
+

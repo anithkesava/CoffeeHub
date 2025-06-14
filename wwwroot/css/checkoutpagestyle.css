@@ -1,0 +1,138 @@
+﻿.page-bg {
+    margin: 0px;
+    padding: 0px;
+    background-color: wheat;
+}
+
+.top-layer {
+    background-color: grey;
+    height: 250px;
+    width: 100%;
+    border-bottom-left-radius: 50%;
+    border-bottom-right-radius: 50%;
+    overflow: hidden;
+}
+
+.checkout-pg-img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.checkout-popup-at-middle {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height:100%;
+    width: 100%;
+}
+
+.checkout-popup {
+    margin-top:-200px;
+    padding: 20px;
+    height: 850px;
+    width: 1000px;
+    background-color: white;
+    border-radius: 20px;
+    overflow-y: hidden;
+}
+.make-the-checkout-popup-scrollable {
+    height: 100%;
+    width: 100%;
+    overflow-y:scroll;
+}
+
+.checkout-address {
+    font-size: 28px;
+    font-weight: bold;
+    height: 100%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.radiobox-address {
+    margin-top: 10px;
+    margin-inline-start: 20px;
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+    font-size: 20px;
+    font-weight: normal;
+}
+
+.wrap-add-address {
+    margin-top: 20px;
+    height: 30px;
+    width: 100%;
+    background-color: bisque;
+    border-radius: 10px;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+
+.add-address {
+    display: inline-flex;
+    align-items: center;
+    font-size: 20px;
+    font-weight: normal;
+    margin-inline-start: 20px;
+    padding: 20px;
+    text-decoration: none;
+    color: red;
+}
+
+    .add-address a {
+        display: inline-flex;
+        align-items: center;
+        font-weight: normal;
+        font-size: 20px;
+        padding: 20px;
+        text-decoration: none;
+        color: red;
+    }
+
+.order-details-checkout {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+}
+
+.checkout-price-details {
+    margin-top: 50px;
+    font-family: 'Cascadia Code';
+    font-size: 28px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    width: 50%
+}
+.payment-box-alignment{
+    margin-top:40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+
+.payment-mode-cart {
+    overflow-y:hidden;
+    height: 400px;
+    width: 800px;
+    background-color: beige;
+    border: 2px solid brown;
+    border-radius: 20px;
+}
+.inside-element-scrollable {
+    overflow-y:scroll;
+    height:100%;
+    width: 100%;
+}

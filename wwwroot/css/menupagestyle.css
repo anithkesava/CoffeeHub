@@ -63,3 +63,12 @@
         transform: scale(1.08);
     }
 
+    .lookanchor-behavebtn {
+        display: inline-flex;
+        flex-direction:column;
+        color: black;
+        text-decoration: none;
+        justify-content: center;
+        align-items: center;
+        gap: 30px;
+    }

@@ -1,0 +1,55 @@
+﻿@{
+	ViewData["Title"] = "Checkout";
+}
+
+<title>@ViewData["Title"] - CoffeeHub</title>
+
+<head>
+	<link rel="stylesheet" href="~/css/checkoutpagestyle.css" />
+</head>
+<body class="page-bg">
+
+	@* page top layer *@
+
+	<div class="top-layer">
+		<img class="checkout-pg-img" src="~/images/checkout/checkoutpage_img.png" alt="checkout-page-img" />
+	</div>
+
+	<div class="checkout-popup-at-middle">
+		<div class="checkout-popup">
+			<div class="make-the-checkout-popup-scrollable">
+				<div class="checkout-address">
+					<span>Address: </span>
+					<div class="radiobox-address">
+						<input style="cursor:pointer;" type="radio" />
+						<label class="form-text">Current Address</label>
+						@*here we need to retrieve the user address*@
+					</div>
+					<div class="wrap-add-address">
+						<div class="add-address">
+							<a href="~/Home/AddAdress">
+								+ Add Address
+							</a>
+						</div>
+					</div>
+					<div class="order-details-checkout">
+						<span>Order Details </span>
+						<div class="checkout-price-details">
+							<span>Order Price:  </span>
+							<span>Tax: </span>
+							<span>Deivery Fee: </span>
+							<span>Total: </span>
+						</div>
+						@*here we need to add the order details*@
+					</div>
+					<div class="payment-box-alignment">
+						<div class="payment-mode-cart">
+							<div class="inside-element-scrollable">
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>

@@ -1,0 +1,112 @@
+﻿@using CoffeHub.Helper;
+@using CoffeHub.Controllers
+@model List<CoffeHub.Models.FoodItems>
+
+@{
+	ViewData["Title"] = "BestSeller";
+}
+
+<title>@ViewData["Title"] - CoffeeHub</title>
+<head>
+	<link rel="stylesheet" href="~/css/bestsellerpagestyle.css" />
+	<link rel="stylesheet" href="~/css/loginpagestyle.css" />
+	<link rel="stylesheet" href="~/css/menupagestyle.css" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body class="bestsellerPageBG">
+	<div class="bestsellerlogo">
+		<img alt="bestseller-logo" src="~/images/bestseller/bestselling.jpeg" />
+	</div>
+	@if (HelperClass.CanIShowViewCart)
+	{
+		<div class="view-cart-align">
+			<form class="view-cart" method="post" asp-controller="Home" asp-action="ViewCart">
+
+				<button class="view-cart-span " type="submit">
+					View cart
+					<i class="fas fa-shopping-cart"></i>
+				</button>
+				<span class="view-cart-quantity">Quantity @HelperClass.OverAllQuantity</span>
+
+			</form>
+		</div>
+	}
+
+	<div class="make-the-screen-center">
+		<div class="bestseller-menuscreen">
+			<div class="img-in-row">
+				@for (int i = 0; i < Model.Count; i++)
+				{
+					<div class="make-it-in-same-place">
+						<img class="img-size" alt="@Model[i].FoodName" src="@(Url.Content($"~/images/bestseller/{Model[i].FoodName}.png"))" />
+						<label class="form-text menu-font">@Model[i].FoodName.Replace("_", " ")</label>
+						<input type="hidden" name="foodname" />
+						<label class="form-text menu-font">Rs. @Model[i].FoodPrice</label>
+						<label class="form-text menu-font">Qty. @Model[i].Quantity</label>
+
+						@* TODO: affected area from here ... *@
+
+						@if (Model[i].IsAddtoCartClicked ?? false)
+						{
+							<div class="minus-count-plus">
+
+								<form method="post" asp-controller="Home" asp-action="Minus">
+									<input type="hidden" name="foodname" value="@Model[i].FoodName" />
+									<button class="minus-and-plus-btn" type="submit">
+										<i class="fas fa-minus"></i>
+									</button>
+								</form>
+
+								<div class="count-btn">
+									<span>@Model[i].CartCount</span>
+								</div>
+
+
+								<form method="post" asp-controller="Home" asp-action="Plus">
+									<input type="hidden" name="foodname" value="@Model[i].FoodName" />
+									<button class="minus-and-plus-btn" type="submit">
+										<i class="fas fa-plus"></i>
+									</button>
+								</form>
+							</div>
+						}
+						else
+						{
+							<form method="post" asp-controller="Home" asp-action="AddToCartClicked">
+								<input type="hidden" name="foodname" value="@Model[i].FoodName" />
+								<button class="add-to-cart" type="submit">Add to Cart</button>
+							</form>
+						}
+
+						@* to here *@
+
+					</div>
+				}
+			</div>
+		</div>
+	</div>
+</body>
+
+<script>
+		document.addEventListener("DOMContentLoaded", function () {
+		const forms = document.querySelectorAll("form");
+		forms.forEach(form => {
+			form.addEventListener("submit", function () {
+				// Save scroll position before submitting form
+				sessionStorage.setItem("scrollPosition", window.scrollY);
+			});
+		});
+
+		// Restore scroll position after reload
+		const scrollY = sessionStorage.getItem("scrollPosition");
+		if (scrollY !== null) {
+			window.scrollTo(0, parseInt(scrollY));
+			sessionStorage.removeItem("scrollPosition"); // Clear after restoring
+		}
+	});
+
+</script>
+
+
+
+

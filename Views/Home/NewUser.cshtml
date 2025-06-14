@@ -69,6 +69,17 @@
 						</form>
 					</div>
 				}
+				@if (HelperClass.IsUserAlreadyExists)
+				{
+					<div class="missingFieldsEmpty">
+						<form method="post" asp-controller="Home" asp-action="CloseUserAlreadyExistsPopup">
+							<div class="makethetextandbtncenter">
+								<span class="requiredfields"><span class="asterisk">*</span> User already Exists</span>
+								<button style="margin-top:20px;" class="okay-btn" type="submit">OK</button>
+							</div>
+						</form>
+					</div>
+				}
 			</div>
 			<form method="post" asp-controller="Home" asp-action="CreateAccount">
 				<span class="accountCreate">Create Account</span>
