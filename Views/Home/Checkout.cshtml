@@ -1,4 +1,6 @@
-﻿@{
+﻿@using CoffeHub.Helper
+
+@{
 	ViewData["Title"] = "Checkout";
 }
 
@@ -28,23 +30,100 @@
 					<div class="wrap-add-address">
 						<div class="add-address">
 							<a href="~/Home/AddAdress">
-								+ Add Address
+								+ add Address
 							</a>
 						</div>
 					</div>
 					<div class="order-details-checkout">
 						<span>Order Details </span>
+						
+						
 						<div class="checkout-price-details">
-							<span>Order Price:  </span>
-							<span>Tax: </span>
-							<span>Deivery Fee: </span>
-							<span>Total: </span>
+							<div class="order-details-fields-only">
+								<span>Order Price:  </span>
+								<span>Tax: </span>
+								<span>Deivery Fee: </span>
+								<span>Total: </span>
+							</div>	
+
+							@* here we need to add the respective values to the field *@
+
 						</div>
-						@*here we need to add the order details*@
+
 					</div>
 					<div class="payment-box-alignment">
 						<div class="payment-mode-cart">
 							<div class="inside-element-scrollable">
+								<div>
+									<span class="payment-mode-text">Payment mode</span>
+								</div>
+								<div class="make-the-paymentmode-middle">
+
+									@* radio button for payment *@
+
+									<form method="post" id="payment" asp-controller="Home" asp-action="Payment">
+										<div class="radiobox-address">
+											<input style="cursor:pointer;" type="radio" name="paymentmode" value="creditdebit" onchange="submitform()" />
+											<span>Credit/Debit Card</span>
+										</div>
+
+										<div class="radiobox-address">
+											<input style="cursor:pointer;" type="radio" name="paymentmode" value="upiapp" onchange="submitform()" />
+											<span>UPI app</span>
+										</div>
+
+										<div class="radiobox-address">
+											<input style="cursor:pointer;" type="radio" name="paymentmode" value="upiid" onchange="submitform()" />
+											<span>UPI ID's</span>
+										</div>
+
+										<div class="radiobox-address">
+											<input style="cursor:pointer;" type="radio" name="paymentmode" value="cod" onchange="submitform()" />
+											<span>Cash on Delivery</span>
+										</div>
+
+									</form>
+
+									@*can we enable the payment through radio button functional enable in here ?*@
+									@if (HelperClass.IsPaymentCreditCard)
+									{
+										<div class="payment-through-box">
+											<div class="make-card-box-center">
+												<span class="card-box">Credit Card</span>
+												<span class="card-box">Debit Card</span>
+
+											</div>
+										</div>
+
+									}
+									@if (HelperClass.IsPaymentUpiApp)
+									{
+										<div class="payment-through-box">
+											<div class="make-it-scrollable">
+												<span class="upi-box">Google Pay</span>
+												<span class="upi-box">Phone Pay</span>
+												<span class="upi-box">Paytm</span>
+											</div>
+										</div>
+									}
+									@if (HelperClass.IsPaymentUpiId)
+									{
+										<form class="payment-through-box" method="post" asp-controller="Home" asp-action="UpiId" id="upiIdform">
+											 
+												<label>Enter Upi ID</label>
+												<input type="text" class="custom-form-control " />
+												<button class="custom-submit-btn" type="submit">Submit</button>
+											 
+										</form>
+
+									}
+									@if (HelperClass.IsPaymentCod)
+									{
+										<div class="payment-through-box">
+											<span> Pay Cash during delivery 😀 </span>
+										</div>
+									}
+								</div>
 							</div>
 						</div>
 					</div>
@@ -53,3 +132,9 @@
 		</div>
 	</div>
 </body>
+
+<script>
+	function submitform(){
+		document.getElementById("payment").submit();
+	}
+</script>

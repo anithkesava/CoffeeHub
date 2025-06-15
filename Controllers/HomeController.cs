@@ -301,6 +301,50 @@ public class HomeController : Controller
 
     /* to here */
 
+    public IActionResult Payment(string paymentmode)
+    {
+        if (paymentmode == "creditdebit")
+        {
+            HelperClass.IsPaymentCreditCard = true;
+            HelperClass.IsPaymentUpiId = false;
+            HelperClass.IsPaymentUpiApp = false;
+            HelperClass.IsPaymentCod = false;
+
+        }
+        else if (paymentmode == "upiapp")
+        {
+            HelperClass.IsPaymentCreditCard = false;
+            HelperClass.IsPaymentUpiId = false;
+            HelperClass.IsPaymentUpiApp = true;
+            HelperClass.IsPaymentCod = false;
+
+        }
+        else if (paymentmode == "upiid")
+        {
+            HelperClass.IsPaymentCreditCard = false;
+            HelperClass.IsPaymentUpiId = true;
+            HelperClass.IsPaymentUpiApp = false;
+            HelperClass.IsPaymentCod = false;
+
+        }
+        else if (paymentmode == "cod")
+        {
+            HelperClass.IsPaymentCreditCard = false;
+            HelperClass.IsPaymentUpiId = false;
+            HelperClass.IsPaymentUpiApp = false;
+            HelperClass.IsPaymentCod = true;
+
+        }
+        else
+        {
+            HelperClass.IsPaymentCreditCard = false;
+            HelperClass.IsPaymentUpiId = false;
+            HelperClass.IsPaymentUpiApp = false;
+            HelperClass.IsPaymentCod = false;
+        }
+        return View("Checkout");
+    }
+
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
     public IActionResult Error()
     {
