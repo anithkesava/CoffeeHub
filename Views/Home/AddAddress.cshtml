@@ -1,18 +1,84 @@
-﻿@{
+﻿@using CoffeHub.Helper
+@model CoffeHub.Models.UserAddress
+@{
 	ViewData["Title"] = "Add Address";
 }
 
 <title> @ViewData["Title"] - CoffeeHub</title>
 <head>
 	<link rel="stylesheet" href="~/css/addaddresspagestyle.css" />
+	<link rel="stylesheet" href="~/css/menupagestyle.css" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
-<body class="pageBG">
+<body class="pageBG ">
 	<div class="top-layer-addaddress">
 		<img alt="top-layer-image" src="~/images/addaddress/address_image.png" />
 	</div>
+	@* here we need to make a if condition for Address Saved*@
+	@if (HelperClass.IsAddressSaved)
+	{
+		<div class="address-saved-box-align">
+			<div class="popup-overlay">
+				<div class="address-saved-box">
+					<div class="address-saved-text">
+						<span>Address Saved Successfully</span>
+					</div>
+					<div class="check-icon">
+						<a href="~/Home/AddressAddedSuccessfully" class="lookanchor-behavebtn">
+							<span class="fas fa-check check-behavior"></span>
+						</a>
+
+					</div>
+
+				</div>
+			</div>
+		</div>
+	}
+
+
 	<div class="align-add-addressbox-center">
 		<div class="add-address-box">
 
+			<div class="make-the-address-box-center">
+				<div class="add-address-text-box">
+					<span class="add-address-span">Add Address</span>
+				</div>
+			</div>
+			<form method="post" asp-controller="Home" asp-action="SaveAddress">
+				<div class="form-group-wrapper">
+					<div class="form-row">
+						<label>Customer name <span class="asterisk">*</span></label>
+						<input type="text" class="custom-form-control" asp-for="Username" value="@TempData["name"]" readonly style="cursor: not-allowed;" />
+					</div>
+					<div class="form-row">
+						<label>Address Level 1<span class="asterisk">*</span></label>
+						<input type="text" class="custom-form-control" asp-for="AddressLine1" />
+					</div>
+					<div class="form-row">
+						<label>Address Level 2<span class="asterisk">*</span></label>
+						<input type="text" class="custom-form-control" asp-for="AddressLine2" />
+					</div>
+					<div class="form-row">
+						<label>City<span class="asterisk">*</span></label>
+						<input type="text" class="custom-form-control" asp-for="City"/>
+					</div>
+					<div class="form-row">
+						<label>State<span class="asterisk">*</span></label>
+						<input type="text" class="custom-form-control" asp-for="State"/>
+					</div>
+					<div class="form-row">
+						<label>NearBy(optional)</label>
+						<input type="text" class="custom-form-control" asp-for="NearBy"/>
+					</div>
+					<div class="form-row">
+						<label>Pincode <span class="asterisk">*</span></label>
+						<input type="number" class="custom-form-control" asp-for="Pincode" />
+					</div>
+				</div>
+				<div class="btn-align">
+					<button class="save-proceed-btn" type="submit">Save & Proceed</button>
+				</div>
+			</form>
 		</div>
 	</div>
 </body>

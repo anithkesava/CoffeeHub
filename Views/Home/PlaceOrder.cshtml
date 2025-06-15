@@ -2,10 +2,28 @@
 	ViewData["Title"] = "Place Order";
 }
 
-<title>@ViewData["Title"] - CoffeeHub</title>
+
 <head>
-	<link rel="stylesheet" href="~/css/placeorderpagestyle.css" />
+	<title>@ViewData["Title"] - CoffeeHub</title>
+	<link rel="stylesheet" href="~/css/placeorderpagestyle.css" asp-append-version="true" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<link rel="stylesheet" href="~/css/addaddresspagestyle.css" asp-append-version="true">
 </head>
-<body>
-	<h1>Place Order Page</h1>
+<body class="page-BG">
+	<div class="align-popup-middle">
+		<div class="order-placed-popup">
+			<div class="make-it-in-column">
+				<div class="check-round">
+					<i class="fas fa-check check-behavior"></i>
+				</div>
+
+				<span class="order-placed-text">Order Placed Successfully</span>
+				<div>
+					<form method="post" asp-controller="Home" asp-action="BestSeller">
+						<button class="go-to-home-btn" type="submit">Go to Home</button>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
 </body>

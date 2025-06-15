@@ -16,15 +16,166 @@
     }
 
 .align-add-addressbox-center {
-    display: grid;
-    place-items: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     height: 90%;
 }
 
 .add-address-box {
-    height: 800px;
-    width: 1200px;
+    padding: 20px;
+    height: 700px;
+    width: 800px;
     background-color: white;
     border: 2px solid brown;
     border-radius: 12px;
 }
+
+.make-the-address-box-center {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.add-address-text-box {
+    font-size: 30px;
+    height: 60px;
+    width: 300px;
+    background-color: bisque;
+    border: 2px solid brown;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.add-address-span {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.add-address-field {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    font-size: 28px;
+}
+
+.custom-form-control {
+    border: 1px solid brown;
+    height: 40px;
+    width: 250px;
+    font-size: 20px;
+    font-family: 'Times New Roman', Times, serif;
+    padding: 10px;
+}
+
+.form-group-wrapper {
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.form-row {
+    display: flex;
+    flex-direction: row;
+    gap: 40px;
+    align-items: center;
+}
+
+    .form-row label {
+        width: 160px;
+        font-size: 20px;
+        font-weight: 500;
+    }
+
+.save-proceed-btn {
+    height: 50px;
+    width: 220px;
+    background-color: limegreen;
+    color: white;
+    font-size: 20px;
+    border: none;
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
+}
+
+    .save-proceed-btn:hover {
+        background-color: green;
+        box-shadow: 2px 2px 3px black;
+        font-size: 18px;
+    }
+
+.btn-align {
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.asterisk {
+    font-size: 18px;
+    color: red;
+    margin-inline-start: 5px;
+}
+.address-saved-box-align{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.address-saved-box {
+    position: absolute;
+    height: 400px;
+    width: 500px;
+    background-color: white;
+    border: 4px solid green;
+    border-radius: 16px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+.popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4); 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+}
+.check-icon {
+    height: 80px;
+    width: 80px;
+    background-color: green;
+    border-radius: 50%;
+    border: none;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.check-behavior {
+    font-size: 40px;
+    color: white;
+
+}
+.address-saved-text {
+    font-size: 28px;
+
+}
+
+

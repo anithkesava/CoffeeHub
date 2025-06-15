@@ -21,5 +21,7 @@
         public static bool IsPaymentCod { get; set; }
 
         public static bool IsPlacedOrderClicked { get; set; }
+        public static bool IsAddressSaved { get; set; }
+        public static bool IsAdditionalAddressExists { get; set; }
     }
 }

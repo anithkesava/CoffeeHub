@@ -1,1 +1,55 @@
-﻿
+﻿.page-BG {
+    background-color: chocolate;
+    margin: 0px;
+    padding: 0px;
+}
+.align-popup-middle {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+.order-placed-popup {
+    height: 600px;
+    width: 800px;
+    background-color: white;
+    border-radius: 20px;
+}
+.make-it-in-column {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    gap: 20px;
+}
+.check-round {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    background-color: green;
+}
+.order-placed-text {
+    font-size: 20px;
+
+}
+.go-to-home-btn{
+    cursor: pointer;
+    font-size: 18px;
+    height: 40px;
+    width: 200px;
+    background-color: forestgreen;
+    color: white;
+    font-weight: bold;
+    border:none;
+}
+.go-to-home-btn:hover{
+    background-color: darkolivegreen;
+    color: white;
+    box-shadow: 2px 3px 4px black;
+}

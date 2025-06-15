@@ -12,6 +12,7 @@ using CoffeHub.Service;
 using CoffeHub.Repo;
 using System.Security.AccessControl;
 using Newtonsoft.Json;
+using Microsoft.EntityFrameworkCore;
 namespace CoffeHub.Controllers;
 public class HomeController : Controller
 {
@@ -288,7 +289,7 @@ public class HomeController : Controller
     /*TODO: Currently Working*/
     public IActionResult AddAddress()
     {
-
+        TempData["name"] = "Anithkesava";
         return View();
     }
 
@@ -308,7 +309,49 @@ public class HomeController : Controller
             City = "Demo City",
             Pincode = 629001
         };
+        UserAddress = _appDbContext.UserAddress.ToList();
+        if (UserAddress.Count > 0)
+        {
+            HelperClass.IsAdditionalAddressExists = true;
+        }
+        else
+        {
+            HelperClass.IsAdditionalAddressExists = false;
+        }
         return View(demouserdetails);
+    }
+    public IActionResult SaveAddress(UserAddress useraddress)
+    {
+        //TODO: need to add some more logic in here regarding address saving
+
+        string username = HttpContext.Session.GetString("username") ?? "usernotfound";
+
+        var user = _appDbContext.UserDetails.Where(x => x.Username == username).FirstOrDefault();
+        if (user != null)
+        {
+            useraddress.UserID = user.UserID;
+        }
+        _appDbContext.UserAddress.Add(useraddress);
+        _appDbContext.SaveChanges();
+        HelperClass.IsAddressSaved = true;
+        return View("AddAddress");
+    }
+    public static List<UserAddress> UserAddress = new List<UserAddress>();
+    public IActionResult AddressAddedSuccessfully()
+    {
+
+        HelperClass.IsAddressSaved = false;
+        UserDetails demouserdetails = new UserDetails
+        {
+            Username = "Anith Kesava",
+            AddressLine1 = "G1-groundfloor Demo Street",
+            AddressLine2 = "Demo Nagar",
+            NearBy = "Nearby Demo School",
+            State = "Demo State",
+            City = "Demo City",
+            Pincode = 629001
+        };       
+        return RedirectToAction("Checkout");
     }
 
     /* to here */

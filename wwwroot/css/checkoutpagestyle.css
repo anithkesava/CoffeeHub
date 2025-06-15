@@ -40,7 +40,7 @@
 }
 
 .make-the-checkout-popup-scrollable {
-    height: 100%;
+    height: 90%;
     width: 100%;
     overflow-y: scroll;
 }
@@ -48,7 +48,7 @@
 .checkout-address {
     font-size: 28px;
     font-weight: bold;
-    height: 100%;
+    height: 90%;
     padding: 20px;
     display: flex;
     flex-direction: column;
@@ -302,9 +302,10 @@
     gap: 20px;
 }
 .place-order-btn-align {
+    margin-top:20px;
     display: flex;
     flex-direction: column;
-    height: 20%;
+    height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
