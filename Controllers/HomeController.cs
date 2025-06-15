@@ -17,6 +17,7 @@ public class HomeController : Controller
 {
     private static List<FoodItems> foodItems = new List<FoodItems>();
     private static List<ViewCarts> ViewCartList = new List<ViewCarts>();
+    private static List<UserDetails> UserDetailsList = new List<UserDetails>();
     private readonly ICreateAccount _createAccount;
     private readonly IValidation _validateuser;
     private readonly AppDbContext _appDbContext;
@@ -48,6 +49,7 @@ public class HomeController : Controller
             return View("Login");
         }
         TempData["Username"] = user.Username;
+        HttpContext.Session.SetString("username", user.Username);
         return View();
     }
     public IActionResult NewUser()
@@ -116,7 +118,6 @@ public class HomeController : Controller
         return View("NewUser");
     }
 
-
     public List<FoodItems> LoadFoodItemsWithCartState()
     {
         var foodItems = _appDbContext.FoodItems.ToList();
@@ -139,7 +140,6 @@ public class HomeController : Controller
         }
         return foodItems;
     }
-
     public void UpdateSessionCart()
     {
         var viewCartList = _appDbContext.ViewCarts.ToList();
@@ -287,16 +287,27 @@ public class HomeController : Controller
 
     public IActionResult Checkout()
     {
-        HelperClass.CanIShowViewCart = false;
-        HelperClass.OverAllQuantity = 0;
-        HelperClass.TotalPrice = 0;
 
-        var viewCarts = _appDbContext.ViewCarts.ToList();
-        _appDbContext.ViewCarts.RemoveRange(viewCarts);
-        _appDbContext.SaveChanges();
-        HttpContext.Session.Clear();
+        string username = HttpContext.Session.GetString("username")??"usernotfound";
+        UserDetails userdetails = _appDbContext.UserDetails.Where(x => x.Username == username).FirstOrDefault() ?? new UserDetails();
 
-        return View();
+
+
+        //TODO: remove and replace this logic to somewhere else
+
+        //to here
+
+        UserDetails demouserdetails = new UserDetails
+        {
+            Username = "Anith Kesava",
+            AddressLine1 = "G1-groundfloor Demo Street",
+            AddressLine2 = "Demo Nagar",
+            NearBy = "Nearby Demo School",
+            State = "Demo State",
+            City = "Demo City",
+            Pincode = 629001
+        };
+        return View(demouserdetails);
     }
 
     /* to here */
@@ -342,9 +353,32 @@ public class HomeController : Controller
             HelperClass.IsPaymentUpiApp = false;
             HelperClass.IsPaymentCod = false;
         }
-        return View("Checkout");
+        UserDetails demouserdetails = new UserDetails
+        {
+            Username = "Anith Kesava",
+            AddressLine1 = "G1-groundfloor Demo Street",
+            AddressLine2 = "Demo Nagar",
+            NearBy = "Nearby Demo School",
+            State = "Demo State",
+            City = "Demo City",
+            Pincode = 629001
+        };
+        return View("Checkout", demouserdetails);
     }
 
+    public IActionResult PlaceOrder()
+    {
+
+        HelperClass.CanIShowViewCart = false;
+        HelperClass.OverAllQuantity = 0;
+        HelperClass.TotalPrice = 0;
+
+        var viewCarts = _appDbContext.ViewCarts.ToList();
+        _appDbContext.ViewCarts.RemoveRange(viewCarts);
+        _appDbContext.SaveChanges();
+        HttpContext.Session.Clear();
+        return View();
+    }
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
     public IActionResult Error()
     {

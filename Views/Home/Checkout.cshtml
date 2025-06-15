@@ -1,5 +1,5 @@
 ﻿@using CoffeHub.Helper
-
+@model CoffeHub.Models.UserDetails
 @{
 	ViewData["Title"] = "Checkout";
 }
@@ -22,11 +22,31 @@
 			<div class="make-the-checkout-popup-scrollable">
 				<div class="checkout-address">
 					<span>Address: </span>
-					<div class="radiobox-address">
-						<input style="cursor:pointer;" type="radio" />
-						<label class="form-text">Current Address</label>
-						@*here we need to retrieve the user address*@
-					</div>
+					<form class="radiobox-address" method="post" id="addressform">
+						@*we need to give value as something*@
+						<div class="radiobox-behavior">
+							<input style="cursor:pointer;" type="radio" name="address" value="@Model.Username" onclick="submitaddress()" />
+						</div>
+
+						<div class="make-it-flex-column">
+							<label>@Model.Username,</label>
+							<label>@Model.AddressLine1,</label>
+							<label>@Model.AddressLine2,</label>
+							@if (!string.IsNullOrWhiteSpace(Model.NearBy))
+							{
+								<label>@Model.NearBy</label>
+							}
+							<label>@Model.City,</label>
+							<label>@Model.State,</label>
+							<label>@Model.Pincode .</label>
+						</div>
+					</form>
+					<script>
+						function submitaddress() {
+						document.getElementById("addressform").submit();
+						}
+					</script>
+
 					<div class="wrap-add-address">
 						<div class="add-address">
 							<a href="~/Home/AddAdress">
@@ -36,20 +56,30 @@
 					</div>
 					<div class="order-details-checkout">
 						<span>Order Details </span>
-						
-						
+
+
 						<div class="checkout-price-details">
+							@{
+								int Orderprice = HelperClass.TotalPrice;
+								int Tax = Orderprice / 25;
+								int DeliveryFee = Orderprice > 100 ? 0 : 54;
+								int Total = Orderprice + Tax + DeliveryFee;
+							}
 							<div class="order-details-fields-only">
 								<span>Order Price:  </span>
 								<span>Tax: </span>
 								<span>Deivery Fee: </span>
 								<span>Total: </span>
-							</div>	
-
-							@* here we need to add the respective values to the field *@
+							</div>
+							<div class="order-details-values-only">
+								<span>Rs. @Orderprice</span>
+								<span>Rs. @Tax</span>
+								<span>Rs. @DeliveryFee</span>
+								<span>Rs. @Total</span>
+							</div>
+							@* TODO: here we need to add the respective values to the field *@
 
 						</div>
-
 					</div>
 					<div class="payment-box-alignment">
 						<div class="payment-mode-cart">
@@ -88,10 +118,19 @@
 									@if (HelperClass.IsPaymentCreditCard)
 									{
 										<div class="payment-through-box">
-											<div class="make-card-box-center">
-												<span class="card-box">Credit Card</span>
-												<span class="card-box">Debit Card</span>
 
+											<div class="make-it-scrollable">
+												<div class="upi-box">
+													@* plan to make the respective logo with the text*@
+													<img class="upi-app-img-logo" src="~/images/checkout/creditcardlogo.png" alt="creditcard-logo" />
+													<span>Credit Card</span>
+												</div>
+
+												<div class="upi-box">
+													@* plan to make the respective logo with the text*@
+													<img class="upi-app-img-logo" src="~/images/checkout/debitcardlogo.png" alt="debitcard-logo" />
+													<span>Debit Card</span>
+												</div>
 											</div>
 										</div>
 
@@ -100,20 +139,34 @@
 									{
 										<div class="payment-through-box">
 											<div class="make-it-scrollable">
-												<span class="upi-box">Google Pay</span>
-												<span class="upi-box">Phone Pay</span>
-												<span class="upi-box">Paytm</span>
+
+												<div class="upi-box">
+													@* plan to make the respective logo with the text*@
+													<img class="upi-app-img-logo" src="~/images/checkout/gpaylogo.png" alt="gpay-logo" />
+													<span>Google Pay</span>
+												</div>
+
+												<div class="upi-box">
+													@* plan to make the respective logo with the text*@
+													<img class="upi-app-img-logo" src="~/images/checkout/phonepaylogo.png" alt="gpay-logo" />
+													<span>Phone Pay</span>
+												</div>
+												<div class="upi-box">
+													@* plan to make the respective logo with the text*@
+													<img class="upi-app-img-logo" src="~/images/checkout/paytm.png" alt="gpay-logo" />
+													<span>Paytm</span>
+												</div>
 											</div>
 										</div>
 									}
 									@if (HelperClass.IsPaymentUpiId)
 									{
 										<form class="payment-through-box" method="post" asp-controller="Home" asp-action="UpiId" id="upiIdform">
-											 
-												<label>Enter Upi ID</label>
-												<input type="text" class="custom-form-control " />
-												<button class="custom-submit-btn" type="submit">Submit</button>
-											 
+
+											<label>Enter Upi ID</label>
+											<input type="text" class="custom-form-control " />
+											<button class="custom-submit-btn" type="submit">confirm</button>
+
 										</form>
 
 									}
@@ -128,7 +181,16 @@
 						</div>
 					</div>
 				</div>
+				<div>
+					<form class="place-order-btn-align" method="post" asp-controller="Home" asp-action="PlaceOrder">
+						<button type="submit" class="place-order-btn">Place Order</button>
+					</form>
+
+				</div>
 			</div>
+
+
+
 		</div>
 	</div>
 </body>

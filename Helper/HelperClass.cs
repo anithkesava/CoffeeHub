@@ -19,5 +19,7 @@
         public static bool IsPaymentUpiApp { get; set; }
         public static bool IsPaymentUpiId { get; set; }
         public static bool IsPaymentCod { get; set; }
+
+        public static bool IsPlacedOrderClicked { get; set; }
     }
 }

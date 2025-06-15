@@ -25,17 +25,6 @@
 
 	<div class="make-the-box-center">
 		<div class="custom-cart-box">
-
-			@*we need to create a view cart inside this area
-
-			create a box, each time for a order inside the view cart box
-			each box consists of 
-								- order image
-								- ordered food
-								- ordered food price
-								- order quantity with - and + symbol
-			*@
-
 			<div class="make-it-scrollable">
 				@for (int i = 0; i < Model.Count; i++)
 				{
@@ -90,7 +79,6 @@
 					<h2>No Items in the Cart</h2>
 				}
 			</div>
-			@*still here*@
 			<div >
 				<form method="post" asp-controller="Home" asp-action="Checkout">
 					<button class="chechout-page-btn" type="submit">
