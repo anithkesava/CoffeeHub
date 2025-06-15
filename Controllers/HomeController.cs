@@ -285,17 +285,18 @@ public class HomeController : Controller
         return View("ViewCart", ViewCartList);
     }
 
+    /*TODO: Currently Working*/
+    public IActionResult AddAddress()
+    {
+
+        return View();
+    }
+
     public IActionResult Checkout()
     {
 
-        string username = HttpContext.Session.GetString("username")??"usernotfound";
+        string username = HttpContext.Session.GetString("username") ?? "usernotfound";
         UserDetails userdetails = _appDbContext.UserDetails.Where(x => x.Username == username).FirstOrDefault() ?? new UserDetails();
-
-
-
-        //TODO: remove and replace this logic to somewhere else
-
-        //to here
 
         UserDetails demouserdetails = new UserDetails
         {
@@ -379,6 +380,7 @@ public class HomeController : Controller
         HttpContext.Session.Clear();
         return View();
     }
+
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
     public IActionResult Error()
     {

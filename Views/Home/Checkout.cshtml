@@ -34,7 +34,7 @@
 							<label>@Model.AddressLine2,</label>
 							@if (!string.IsNullOrWhiteSpace(Model.NearBy))
 							{
-								<label>@Model.NearBy</label>
+								<label>@Model.NearBy,</label>
 							}
 							<label>@Model.City,</label>
 							<label>@Model.State,</label>
@@ -49,7 +49,7 @@
 
 					<div class="wrap-add-address">
 						<div class="add-address">
-							<a href="~/Home/AddAdress">
+							<a href="~/Home/AddAddress">
 								+ add Address
 							</a>
 						</div>
@@ -77,7 +77,6 @@
 								<span>Rs. @DeliveryFee</span>
 								<span>Rs. @Total</span>
 							</div>
-							@* TODO: here we need to add the respective values to the field *@
 
 						</div>
 					</div>
@@ -182,6 +181,7 @@
 					</div>
 				</div>
 				<div>
+
 					<form class="place-order-btn-align" method="post" asp-controller="Home" asp-action="PlaceOrder">
 						<button type="submit" class="place-order-btn">Place Order</button>
 					</form>
@@ -199,4 +199,19 @@
 	function submitform(){
 		document.getElementById("payment").submit();
 	}
+</script>
+
+<script>
+	// Store the scroll position before navigating away
+	window.addEventListener("beforeunload", function () {
+		sessionStorage.setItem("scrollPosition", window.scrollY);
+	});
+
+	// Restore scroll position after page reload
+	window.addEventListener("load", function () {
+		const scrollY = sessionStorage.getItem("scrollPosition");
+		if (scrollY !== null) {
+			window.scrollTo(0, parseInt(scrollY));
+		}
+	});
 </script>

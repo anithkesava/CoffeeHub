@@ -11,6 +11,8 @@ namespace CoffeHub.Repo
 
         public DbSet<ViewCarts> ViewCarts { get; set; }
 
+        public DbSet<UserAddress> UserAddress { get; set; }
+
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) { }
     }
 }

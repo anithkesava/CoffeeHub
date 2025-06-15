@@ -1,0 +1,30 @@
+﻿.pageBG {
+    background-color: wheat;
+    margin: 0px;
+    padding: 0px;
+}
+
+.top-layer-addaddress {
+    height: 180px;
+    width: 100%;
+}
+
+    .top-layer-addaddress img {
+        height: 180px;
+        width: 100%;
+        object-fit: cover;
+    }
+
+.align-add-addressbox-center {
+    display: grid;
+    place-items: center;
+    height: 90%;
+}
+
+.add-address-box {
+    height: 800px;
+    width: 1200px;
+    background-color: white;
+    border: 2px solid brown;
+    border-radius: 12px;
+}
